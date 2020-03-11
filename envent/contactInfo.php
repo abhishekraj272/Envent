@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect('localhost', 'root');
+$con = mysqli_connect('localhost', 'root', 'pass');
 
 if ($con) {
     echo "Connection Successfull";
