@@ -2,7 +2,7 @@
 
 include "navbar.php";
 
-$con = mysqli_connect('localhost', 'root');
+$con = mysqli_connect('localhost', 'root', 'pass');
 
 mysqli_select_db($con, 'envent');
 
