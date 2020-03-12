@@ -1,3 +1,7 @@
+<?php 
+  include('function.php');
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,9 +34,20 @@
           </form>
 
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/envent/index.php">Home <span class="sr-only">(current)</span></a>
-            </li>
+          <li class="nav-item dropdown">
+          <?php  if (isset($_SESSION['user'])) : ?>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo $_SESSION['user']['username']; ?>
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Write Blog</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Setting</a>
+        </div>
+      </li>
+      <?php endif ?>
 
             <li class="nav-item">
               <a class="nav-link" href="about.php">About</a>
@@ -41,10 +56,18 @@
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contact</a>
             </li>
+            
+            <?php  if (isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            </li>
+            <?php endif ?>
 
+            <?php  if (!isset($_SESSION['user'])) : ?>
             <li class="nav-item">
               <a class="nav-link" href="login.php">Login</a>
             </li>
+            <?php endif ?>
             
           </ul>
           

@@ -1,5 +1,6 @@
 
     <?php include 'navbar.php';?>
+    
 
     <div class="container mt-5">
     <form action="contactInfo.php" method="post" >
